@@ -5,112 +5,81 @@ description: Force any writing to follow human patterns and strip every known si
 
 # Humanize AI Writing
 
-Make every piece of prose read like a thoughtful person wrote it. This skill is
-both a **guardrail while drafting** and a **rewrite pass on existing text**. It
-encodes the full catalog of AI-writing tells from Wikipedia's "Signs of AI
-writing" as rules you must follow.
+Make every piece of prose read like a thoughtful person wrote it. This skill is a
+guardrail while drafting and a rewrite pass on existing text. It encodes the AI
+tells cataloged in Wikipedia's "Signs of AI writing" as rules you must follow.
 
 ## When this triggers
 - The user asks to humanize, de-slop, or de-robotify text.
-- The user says the writing "sounds like AI" or "sounds generic."
-- You are about to deliver any long-form prose meant to be published or sent.
-  Run the final pass (below) before sending — do not skip it.
+- The user says writing "sounds like AI" or "sounds generic."
+- You're about to deliver any long-form prose. Run the final pass before sending.
 
 ## Workflow
 1. **Read** the target text (the user's, or your own draft).
-2. **Detect** — scan for every tell in `references/ai-tells.md`. Mark each hit.
+2. **Detect** — scan against `references/ai-tells.md`. Mark each hit.
 3. **Rewrite** — apply `references/rewrite-rules.md`. Fix tells sentence by
-   sentence. Keep the author's meaning, facts, numbers, names, and position.
+   sentence. Keep meaning, facts, numbers, names, and the author's position.
 4. **Self-check** — run `assets/checklist.md`. Tells cluster, so scan twice.
-5. **Deliver** clean text. If you cut a claim for having no source, say so in one
-   line at the end. Never describe this process inside the prose itself.
+5. **Deliver** clean text. If you cut a claim for lacking a source, say so in one
+   line. Never describe this process inside the prose.
 
 ---
 
-## THE RULES — follow all of them, every time
+## THE RULES — follow all of them
 
-### 1. Banned vocabulary — never use these
-delve, tapestry, testament, underscore, pivotal, intricate, intricacies,
-meticulous, garner, vibrant, nestled, boasts, showcasing, foster/fostering,
-landscape (figurative), realm, embark, navigate (figurative), leverage (verb),
-elevate, unlock, unleash, harness, robust, seamless, holistic, myriad, plethora,
-cornerstone, beacon, treasure trove, game-changer, paradigm, synergy,
-ever-evolving, ever-changing, fast-paced world, "in today's world",
-"when it comes to", "it's important to note", "it's worth noting",
-"it is important to remember", "needless to say".
-
-### 2. No fake significance
-Don't inflate importance. Ban: "stands as," "serves as a testament,"
-"marks a pivotal moment," "plays a vital/crucial role," "leaves an indelible
-mark," "rich history/heritage/tapestry," "enduring legacy." State what a thing is
-and does; drop the editorializing about its significance.
-
-### 3. No present-participle padding
-Don't end sentences with vague "-ing" clauses that fake depth:
-"…, highlighting its importance," "…, contributing to the broader landscape,"
-"…, reflecting a commitment to excellence," "…, solidifying its role as a hub."
-If the clause carries no fact, delete it.
-
-### 4. No negative parallelisms
-Ban "not just X, but Y," "it's not X, it's Y," "more than just," "X isn't merely
-Y," "not only… but also," "X rather than Y." A top AI tell. Make the positive
-claim directly.
-
-### 5. No rule-of-three filler
-Stop auto-grouping into three adjectives or three phrases ("fast, reliable, and
-scalable"). Use the count the meaning needs — often one or two. Vary list length.
-
-### 6. Punctuation and formatting
-- Em dashes: at most one every few paragraphs. Prefer a period or comma.
-- Straight quotes only (" '), never curly/smart quotes.
-- Almost no bold in prose. Don't bold for mechanical emphasis.
-- Headings in sentence case, not Title Case.
-- No inline-header lists ("**Thing**: description") unless the user asked for a
-  list. Don't skip heading levels. No horizontal rules before headings.
-
-### 7. No promotional / press-release tone
-Ban "commitment to," "dedication to," "ensuring," "cutting-edge," "world-class,"
-"state-of-the-art," "passionate about," "we're excited to," "revolutionary,"
-"best-in-class," "next-generation." Write like a knowledgeable peer.
-
-### 8. Specifics over hedging
-Replace weasel attributions ("experts say," "studies show," "it is widely
-believed," "many argue," "observers note," "research suggests") with a named
-source or a concrete detail — or cut the claim. Never invent a source.
-
-### 9. No hollow conclusions
-Don't end with "In conclusion," "Overall," "Ultimately," "In summary," or a
-paragraph that restates the piece. Don't speculate about "the future" or
-"broader implications" unless asked. Stop on the last real point.
-
-### 10. Vary the rhythm
-Mix sentence lengths; include short ones; use fragments when natural. Let a key
-word repeat rather than cycling synonyms — elegant variation ("the author… the
-writer… the wordsmith") is a tell, not a virtue.
-
-### 11. No copy-paste artifacts
-Strip any leftover markup: contentReference, oaicite, oai_citation, turn0search0,
-":::", "+1", grok_card, tracking params (utm_source=) in links, and curly-quote
-noise.
-
----
+1. **Banned vocabulary** — delve, tapestry, testament, underscore, pivotal,
+   intricate, meticulous, garner, vibrant, bolstered, enduring, interplay,
+   crucial, valuable, exemplify, renowned, groundbreaking, boasts, nestled,
+   landscape (figurative), realm, embark, leverage (verb), elevate, unlock,
+   unleash, harness, robust, seamless, holistic, myriad, plethora, cornerstone,
+   beacon, paradigm, synergy. Editorializing openers: additionally, moreover,
+   furthermore, notably, importantly. Canned phrases: "in today's world", "in the
+   heart of", "rich cultural heritage", "when it comes to", "it's important to
+   note", "it's worth noting".
+2. **No fake significance / legacy** — no "stands as", "serves as a testament",
+   "marks a pivotal moment", "plays a vital role", "leaves an indelible mark",
+   "setting the stage for", "turning point", "evolving landscape", "focal point",
+   "deeply rooted", "reflects a broader", "represents a shift".
+3. **No present-participle padding** — no trailing "-ing" clauses with no fact
+   ("…, highlighting its importance", "…, reflecting a commitment to…").
+4. **No negative parallelism** — no "not just X, but Y", "not only… but also",
+   "it's not X, it's Y", "no X, no Y, just Z", "more than just", "X rather than Y".
+5. **No rule-of-three filler** — use the count the meaning needs, not always three.
+6. **Punctuation & typography** — **avoid em dashes** (rewrite with comma / period
+   / colon / parentheses); straight quotes and apostrophes only; almost no bold;
+   sentence-case headings; no emoji as formatting; no inline-header bold lists.
+7. **No promotional / puffery tone** — no "commitment to", "cutting-edge",
+   "world-class", "state-of-the-art", "passionate about", "we're excited to",
+   "revolutionary", "diverse array", "seamlessly connecting".
+8. **Use plain copulas** — "is/are/has", not "serves as", "stands as",
+   "represents", "features", "maintains", "offers", "boasts", "refers to".
+9. **Specifics over hedging, no notability padding** — replace "experts say /
+   studies show / observers have cited / some critics argue / industry reports"
+   with a named source or cut it. No lists of media the subject appeared in. Never
+   write "maintains an active social media presence". Never invent a source.
+10. **No hollow conclusions or formula sections** — no "In conclusion", "Overall",
+    "Ultimately", "In summary"; no "Despite its [positives]… faces challenges…" →
+    "Future Outlook" template; no future-speculation unless asked.
+11. **Vary rhythm** — mix sentence lengths, use short ones, allow fragments. Let a
+    word repeat instead of cycling synonyms (no elegant variation).
+12. **No artifacts** — strip contentReference, oaicite, oai_citation, turn0search0,
+    utm_source= in links, markdown leaking where it shouldn't, curly-quote noise.
 
 ## Voice defaults
-- Plain copulas: "is/are/has," not "serves as / functions as / represents."
-- Active voice, concrete subjects.
-- Contractions are fine. Write how a competent person talks.
-- Don't restate the topic at the start of every section. Get to the point.
-- Don't add hype to fix flatness. Plain is the goal. Don't add fake slang either
-  — that's its own tell.
+- Active voice, concrete subjects. Contractions are fine.
+- Don't restate the topic at the start of every section.
+- Don't add hype to fix flatness or fake slang to "sound human". Plain is the goal.
+
+## Important — don't overcorrect
+A single flagged word is not proof of AI, and detectors are unreliable. Avoid
+*clusters* of tells while keeping meaning, facts, and the author's position. Don't
+mangle a sentence or delete real information just to purge one banned word —
+rewrite cleanly, or leave it if the rewrite would lose meaning.
 
 ## Final pass (do not skip)
-Scan the draft and remove any: banned words (R1), fake significance (R2),
-trailing "-ing" padding (R3), "not X but Y" (R4), forced triples (R5), excess em
-dashes / bold / curly quotes / Title Case (R6), promo tone (R7), weasel
-attributions (R8), "In conclusion" wrap-ups (R9), uniform rhythm (R10),
-artifacts (R11). Rewrite each hit before sending. Never mention this pass.
+Re-scan and rewrite any hit for rules 1–12 before sending. Never mention this pass.
 
 ## Reference files
 - `references/ai-tells.md` — full detection catalog.
 - `references/rewrite-rules.md` — fix + before/after for each tell.
-- `assets/checklist.md` — the pre-ship pass as a checklist.
+- `assets/checklist.md` — the pre-ship checklist.

@@ -73,10 +73,17 @@ or "such as X and Y" implying a longer list.
 - Title Case In Headings (should be sentence case).
 - Excessive boldface for mechanical emphasis.
 - Inline-header vertical lists: "**Standard Saws**: used for…".
-- Overuse of em dashes.
+- **Em dashes** — overuse is a flagged tell. Treat as: avoid; rewrite with comma,
+  period, colon, or parentheses.
 - Curly/smart quotes instead of straight quotes.
+- Emoji used as bullets/formatting (•, 🔹).
 - Markdown leaking where it shouldn't (*asterisks*, #hashtags in wikitext).
 - Skipped heading levels; horizontal rules before headings.
+
+## 6b. Formula sections
+- "Despite its [positives], it faces challenges…" openings.
+- "Future Outlook", "Challenges and Legacy", "Challenges and Future Directions"
+  headings that end an article with vague positive speculation.
 
 ## 7. Markup / technical artifacts (copy-paste leftovers)
 
@@ -94,7 +101,19 @@ piece, section summaries that recap what was just said.
 "As an AI, I…," "I cannot…," didactic disclaimers, abrupt mid-sentence cut-offs,
 end-of-section recaps. Rare in current models but still appear.
 
+## 8. Hollow conclusions — also section summaries
+Add "In summary" to the banned openers, and the "Despite its… → Future Outlook"
+formula in §6b.
+
+## Not reliable on their own (per Wikipedia)
+These are weak evidence in isolation — don't treat them as proof, and when
+*rewriting*, don't mangle meaning to purge a single instance:
+- A lone "AI vocabulary" word. One "vibrant" is not a verdict.
+- Generic promotional tone by itself — humans write marketing too.
+- **AI-detector tools** — high error rates; they flag human text constantly.
+
 ## Composite signal
 Confidence rises sharply when several cluster: AI vocabulary + superficial
 analysis + promo tone + excess bold + Title Case + inline-header lists. Human
-judgment alone is near chance; pattern-matching the list above is what works.
+judgment alone is near chance; pattern-matching the clustered list is what works.
+When generating, the rule is simpler: avoid producing these patterns at all.

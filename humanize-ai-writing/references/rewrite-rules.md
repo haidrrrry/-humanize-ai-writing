@@ -31,9 +31,24 @@ facts. When a claim has no source, cut it — don't fabricate a replacement.
 - **After:** "Cheaper than the alternatives, and it scales." (two real points.)
 
 ## Punctuation
-- Em dashes: keep at most one per few paragraphs; otherwise use a period or comma.
+- **Em dashes → avoid them.** They're a known AI tell. Rewrite with a comma,
+  period, colon, or parentheses.
+  - **Before:** "The tools you use — Slack, GitHub, Linear — sync automatically."
+  - **After:** "The tools you use, like Slack, GitHub, and Linear, sync
+    automatically." (or use a colon / parentheses.)
 - Replace curly quotes "" '' with straight " '.
-- Remove bold used for emphasis. Headings → sentence case.
+- Remove bold used for emphasis. Headings → sentence case. No emoji as bullets.
+
+## Copula avoidance → plain "is/are"
+- **Before:** "Gallery 825 serves as the association's exhibition space."
+- **After:** "Gallery 825 is the association's exhibition space."
+- Swap back: serves as/stands as/represents/features/maintains/boasts → is, are, has.
+
+## Notability padding → cut it
+- **Before:** "She has been profiled in major outlets and maintains an active
+  social media presence."
+- **After:** (delete it, or state one concrete, sourced fact: "Her 2024 TED talk
+  has 2M views.")
 
 ## Promotional tone → peer voice
 - **Before:** "Our cutting-edge platform is committed to delivering world-class,

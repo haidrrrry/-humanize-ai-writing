@@ -49,7 +49,7 @@ ChatGPT, Claude (web/Desktop/Code), Gemini, Grok, Kimi, DeepSeek, Perplexity, an
 | "stands as a testament to innovation" | "shipped in 2021; 4M users" |
 | "It's not just a tool, it's a movement" | "The tool does X." |
 | "fast, scalable, and future-proof" | "cheaper, and it scales" |
-| Em dashes everywhere — like this — constantly | one, only when it earns it |
+| Em dashes everywhere — like this — constantly | none; a comma, period, or colon |
 | "In conclusion, the future is bright." | (ends on the last real point) |
 
 ## 🔍 Why this one
@@ -114,19 +114,22 @@ humanize-ai-writing/               # Claude agent skill (source)
 blog/                              # Sample posts written with the skill
 ```
 
-## 🧠 The 11 rules (short version)
+## 🧠 The 12 rules (short version)
 
-1. No banned vocabulary (delve, tapestry, testament, underscore, leverage…)
+1. No banned vocabulary (delve, tapestry, testament, underscore, additionally, moreover…)
 2. No fake significance ("stands as," "pivotal moment," "indelible mark")
 3. No present-participle padding ("…, highlighting its importance")
-4. No negative parallelisms ("not just X, but Y")
+4. No negative parallelism ("not just X, but Y," "no X, no Y, just Z")
 5. No forced rule-of-three lists
-6. Sparse em dashes, straight quotes, almost no bold, sentence-case headings
+6. Avoid em dashes; straight quotes; almost no bold; sentence-case headings; no emoji formatting
 7. No promotional / press-release tone
-8. Specifics over hedging — name a source or cut the claim
-9. No hollow conclusions ("In conclusion," future-speculation)
-10. Vary sentence rhythm; allow repetition over synonym-cycling
-11. Strip copy-paste artifacts (oaicite, contentReference, tracking params)
+8. Plain copulas ("is/are," not "serves as / stands as / boasts")
+9. Specifics over hedging; no media-coverage or "active social media presence" padding
+10. No hollow conclusions ("In conclusion") or "Despite its… Future Outlook" formula
+11. Vary sentence rhythm; allow repetition over synonym-cycling
+12. Strip copy-paste artifacts (oaicite, contentReference, tracking params)
+
+> Don't overcorrect: a lone flagged word isn't proof, and AI detectors are unreliable. The goal is avoiding *clusters* of tells while keeping the meaning intact.
 
 ## 🤝 Contributing
 
