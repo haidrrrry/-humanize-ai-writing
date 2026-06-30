@@ -1,60 +1,99 @@
 # Install — Humanize AI Writing
 
-Pick your tool. Each takes under a minute.
+**Read this first.** There are two completely different ways to use this, and
+which one you need depends on your tool:
+
+| Tool | Method | What you use |
+|---|---|---|
+| **Claude** (Code / Desktop / claude.ai) | Install as a **Skill** (auto-triggers) | the `humanize-ai-writing/` folder or the `.zip` |
+| **ChatGPT** | **Paste** instructions (no skill system) | `PROMPT.md` |
+| **Gemini** | **Paste** instructions (no skill system) | `PROMPT.md` |
+| **Grok / Kimi / DeepSeek / others** | **Paste** instructions (no skill system) | `PROMPT.md` |
+
+> ⚠️ **ChatGPT, Gemini, and Grok do not have a "skills" feature.** You cannot
+> upload a skill file to them — there is nowhere to put it. They only accept a
+> pasted system prompt / custom instruction. Use [`PROMPT.md`](PROMPT.md). This is
+> the #1 reason people think "it doesn't work" — they tried to install a skill in
+> a tool that has no skills. Paste the prompt instead.
 
 ---
 
-## ⚡ Fastest (Claude Code / Claude Desktop) — one command
+## Claude — install as a skill
 
+Skills only exist in Claude. Pick your Claude surface:
+
+### Claude Code (terminal)
+One command:
 ```bash
 curl -fsSL https://raw.githubusercontent.com/haidrrrry/humanize-ai-writing/main/install.sh | bash
 ```
+This copies the skill to `~/.claude/skills/humanize-ai-writing`. Restart Claude
+Code. Then type `/humanize-ai-writing` or say "humanize this."
 
-That copies the skill into `~/.claude/skills/humanize-ai-writing`. Restart Claude, then say *"humanize this"* and it triggers automatically.
+Manual version:
+```bash
+git clone --depth 1 https://github.com/haidrrrry/humanize-ai-writing.git
+mkdir -p ~/.claude/skills
+cp -r humanize-ai-writing/humanize-ai-writing ~/.claude/skills/
+```
 
-Project-only (just this repo): clone, then `./install.sh --project`.
+### Claude Desktop
+Same as above — Claude Desktop reads `~/.claude/skills/`. Run the one-command
+installer, then restart the app.
 
----
+### claude.ai (web)
+1. Download [`humanize-ai-writing.zip`](humanize-ai-writing.zip) from this repo.
+2. In claude.ai: **Settings → Features → Skills → Upload skill**.
+3. Select the `.zip`. (Requires a Pro / Max / Team / Enterprise plan with code
+   execution enabled.)
+4. Start a chat and say "humanize this."
 
-## 🤖 For AI agents (if a user asks you to "add this skill")
-
-You are an AI agent and your user said "add the humanize-ai-writing skill." Do this:
-
-1. Run:
-   ```bash
-   git clone --depth 1 https://github.com/haidrrrry/humanize-ai-writing.git /tmp/hmz \
-     && mkdir -p ~/.claude/skills \
-     && cp -r /tmp/hmz/humanize-ai-writing ~/.claude/skills/ \
-     && echo "installed: ~/.claude/skills/humanize-ai-writing"
-   ```
-2. Confirm the folder exists: `ls ~/.claude/skills/humanize-ai-writing` should list `SKILL.md`, `references/`, `assets/`.
-3. Tell the user it's installed and that it triggers on "humanize this / make it sound human / remove AI slop."
-
-If the tool is **not** Claude (no `~/.claude/skills`), instead open `PROMPT.md` from the repo and paste its contents into the tool's system prompt / custom-instructions field. That is the universal version and works everywhere.
-
----
-
-## ChatGPT
-
-- **Custom Instructions:** Settings → Personalization → Custom Instructions → paste [`PROMPT.md`](PROMPT.md) into "How would you like ChatGPT to respond?"
-- **Custom GPT:** Explore → Create → Instructions → paste `PROMPT.md`.
-
-## Claude (web / Desktop)
-
-- **Project:** open a Project → Project instructions → paste `PROMPT.md`.
-- **Skill (auto-trigger):** use the one-command installer above, or upload `humanize-ai-writing.skill` in Settings → Capabilities → Skills.
-
-## Gemini
-
-- **Gem:** Gems → New Gem → paste `PROMPT.md` as instructions.
-- Or paste it at the top of any chat.
-
-## Grok / Kimi / DeepSeek / Perplexity / others
-
-- Paste `PROMPT.md` as a custom/system instruction, or as your first message in the chat.
+> Must be a **`.zip`** — claude.ai does not accept a `.skill` file.
 
 ---
 
-## Verify it works
+## ChatGPT — paste the prompt
 
-Ask the model to write a short paragraph about anything, then ask it to *"humanize it and remove AI slop."* It should drop words like *delve* and *tapestry*, kill "not just X but Y", and read like a person wrote it. Compare against `humanize-ai-writing/assets/checklist.md`.
+ChatGPT has no skills. Use one of:
+
+- **Custom Instructions (applies everywhere):** Settings → Personalization →
+  Custom Instructions → paste all of [`PROMPT.md`](PROMPT.md) into
+  *"How would you like ChatGPT to respond?"* → Save.
+- **A Custom GPT (a dedicated humanizer):** Explore GPTs → Create → in
+  *Instructions*, paste `PROMPT.md` → Save. Now that GPT always de-slops.
+
+## Gemini — paste the prompt
+
+- **A Gem:** Gemini → Gems → New Gem → paste `PROMPT.md` as the instructions →
+  Save. Use that Gem when you want humanized writing.
+- Or paste `PROMPT.md` as your first message in any chat.
+
+## Grok / Kimi / DeepSeek / Perplexity / Copilot / Cursor
+
+No skills here either. Paste [`PROMPT.md`](PROMPT.md) as a system/custom
+instruction if the tool has that field, otherwise paste it as the first message
+of the chat.
+
+---
+
+## For AI agents (a user told you to "add this skill")
+
+If you are an AI assistant and the environment is **Claude Code / Desktop**:
+```bash
+git clone --depth 1 https://github.com/haidrrrry/humanize-ai-writing.git /tmp/hmz \
+  && mkdir -p ~/.claude/skills \
+  && cp -r /tmp/hmz/humanize-ai-writing ~/.claude/skills/ \
+  && echo "installed: ~/.claude/skills/humanize-ai-writing"
+```
+Then confirm `ls ~/.claude/skills/humanize-ai-writing` shows `SKILL.md`.
+
+If the environment is **not Claude** (no `~/.claude/skills`, e.g. you are ChatGPT
+or Gemini), you cannot install a skill. Instead read `PROMPT.md` from the repo and
+apply its rules to everything you write from now on.
+
+---
+
+## Verify it works (any tool)
+Ask the model to write a short paragraph, then: *"humanize it, remove AI slop."*
+It should drop words like *delve* and *tapestry*, kill "not just X but Y", and
+read like a person wrote it. Compare to `humanize-ai-writing/assets/checklist.md`.

@@ -63,36 +63,36 @@ curl -fsSL https://raw.githubusercontent.com/haidrrrry/humanize-ai-writing/main/
 ```
 Then restart Claude and say *"humanize this."* Full per-tool steps in [INSTALL.md](INSTALL.md).
 
-> **Telling your own AI to install it?** Point it at [INSTALL.md](INSTALL.md) — it has a copy-paste block written for AI agents, so the assistant knows exactly what to clone and where to put it.
+> ⚠️ **Only Claude has a "Skills" feature.** ChatGPT, Gemini, and Grok **cannot load a skill file** — there's nowhere to upload it. For those tools you **paste** [`PROMPT.md`](PROMPT.md) instead. Trying to install a skill in ChatGPT is the #1 "it doesn't work" mistake. Full steps: [INSTALL.md](INSTALL.md).
 
-### ChatGPT
-- **Custom Instructions:** Settings → Personalization → Custom Instructions → paste [`PROMPT.md`](PROMPT.md) into "How would you like ChatGPT to respond?"
-- **Custom GPT:** Create a GPT → Instructions → paste `PROMPT.md`.
-
-### Claude
-- **Claude.ai / Desktop:** Projects → Project instructions (or a Style) → paste `PROMPT.md`.
-- **Claude Code / Desktop skill:** install the agent skill so it triggers automatically:
+### Claude — install as a skill (auto-triggers)
+- **Claude Code / Desktop:** run the one-command installer above, or:
   ```bash
   git clone https://github.com/haidrrrry/humanize-ai-writing.git
   mkdir -p ~/.claude/skills
   cp -r ./humanize-ai-writing/humanize-ai-writing ~/.claude/skills/
   ```
-  Or upload `humanize-ai-writing.skill` in **Settings → Capabilities → Skills**.
+  Then say "humanize this" or type `/humanize-ai-writing`.
+- **claude.ai (web):** download [`humanize-ai-writing.zip`](humanize-ai-writing.zip) → **Settings → Features → Skills → Upload skill** → pick the `.zip`. (Must be a `.zip`, not a `.skill`.)
 
-### Gemini
-- **Gem:** Gem manager → New Gem → paste `PROMPT.md` as instructions.
-- Or paste at the top of any chat.
+### ChatGPT — paste (no skills)
+- **Custom Instructions:** Settings → Personalization → Custom Instructions → paste [`PROMPT.md`](PROMPT.md) into "How would you like ChatGPT to respond?"
+- **Custom GPT:** Create a GPT → Instructions → paste `PROMPT.md`.
 
-### Grok / Kimi / DeepSeek / others
-- Paste `PROMPT.md` as a custom/system instruction, or at the start of the chat.
+### Gemini — paste (no skills)
+- **Gem:** Gems → New Gem → paste `PROMPT.md` as instructions. Or paste at the top of any chat.
+
+### Grok / Kimi / DeepSeek / others — paste (no skills)
+- Paste `PROMPT.md` as a custom/system instruction, or as the first message in the chat.
 
 ## 📦 What's inside
 
 ```
-PROMPT.md                          # Universal paste-in system prompt (all tools)
+PROMPT.md                          # Universal paste-in system prompt (ChatGPT/Gemini/Grok/Kimi)
 INSTALL.md                         # Per-tool install + AI-agent install block
-install.sh                         # One-command installer for Claude
-humanize-ai-writing/               # Claude agent skill
+install.sh                         # One-command installer for Claude Code/Desktop
+humanize-ai-writing.zip            # Upload-ready bundle for claude.ai
+humanize-ai-writing/               # Claude agent skill (source)
 ├── SKILL.md                       # Trigger + rewrite workflow + 11 rules
 ├── references/
 │   ├── ai-tells.md                # Full catalog of AI-writing signs (detect)
@@ -102,7 +102,7 @@ humanize-ai-writing/               # Claude agent skill
 blog/                              # Sample posts written with the skill
 ```
 
-## 🧠 The 10 rules (short version)
+## 🧠 The 11 rules (short version)
 
 1. No banned vocabulary (delve, tapestry, testament, underscore, leverage…)
 2. No fake significance ("stands as," "pivotal moment," "indelible mark")

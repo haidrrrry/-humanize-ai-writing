@@ -1,7 +1,6 @@
 ---
 name: humanize-ai-writing
 description: Force any writing to follow human patterns and strip every known sign of AI-generated text ("AI slop"). Use whenever producing or editing prose that will be read by a person — articles, blog posts, emails, captions, essays, documentation, social copy, reports — and whenever the user says "humanize this", "make it sound human", "remove AI slop", "doesn't sound like AI", "sounds robotic", or "rewrite this naturally". Apply this as a mandatory final pass on any long-form prose before delivering it.
-license: MIT
 ---
 
 # Humanize AI Writing
