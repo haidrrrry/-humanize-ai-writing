@@ -5,7 +5,8 @@ which one you need depends on your tool:
 
 | Tool | Method | What you use |
 |---|---|---|
-| **Claude** (Code / Desktop / claude.ai) | Install as a **Skill** (auto-triggers) | the `humanize-ai-writing/` folder or the `.zip` |
+| **Claude Code / Desktop** | Install as a **Skill** (auto-triggers) | the `humanize-ai-writing/` folder |
+| **Claude.ai / mobile (web)** | A **Style** (any plan), or upload the skill **`.zip`** (paid) | `PROMPT.md` or the `.zip` |
 | **ChatGPT** | **Paste** instructions (no skill system) | `PROMPT.md` |
 | **Gemini** | **Paste** instructions (no skill system) | `PROMPT.md` |
 | **Grok / Kimi / DeepSeek / others** | **Paste** instructions (no skill system) | `PROMPT.md` |
@@ -41,14 +42,25 @@ cp -r humanize-ai-writing/humanize-ai-writing ~/.claude/skills/
 Same as above — Claude Desktop reads `~/.claude/skills/`. Run the one-command
 installer, then restart the app.
 
-### claude.ai (web)
-1. Download [`humanize-ai-writing.zip`](humanize-ai-writing.zip) from this repo.
-2. In claude.ai: **Settings → Features → Skills → Upload skill**.
-3. Select the `.zip`. (Requires a Pro / Max / Team / Enterprise plan with code
-   execution enabled.)
-4. Start a chat and say "humanize this."
+### Claude.ai / Claude mobile (web app)
+The web app has no file system, so it can't run the installer or the CLI, and a
+chatbot there can't "install" anything for you. You have two supported ways to make
+the style stick:
 
-> Must be a **`.zip`** — claude.ai does not accept a `.skill` file.
+**Option 1: a Style (works on any plan, recommended for web):**
+1. Copy the contents of [`PROMPT.md`](PROMPT.md).
+2. In Claude.ai: **Settings → Styles → Create style** (or use a Project's custom
+   instructions).
+3. Paste `PROMPT.md` in, save, and select that style when you write.
+
+**Option 2: upload it as a Skill (Pro / Max / Team / Enterprise with code
+execution):**
+1. Download [`humanize-ai-writing.zip`](humanize-ai-writing.zip).
+2. **Settings → Features → Skills → Upload skill**, select the `.zip`.
+3. Say "humanize this" in a chat.
+
+> The skill upload must be a **`.zip`**, not a `.skill` file. If you don't have a
+> paid plan or code execution, use Option 1.
 
 ---
 
